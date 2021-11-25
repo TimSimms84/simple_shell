@@ -23,9 +23,8 @@ char put_prompt(void)
     if (x0)
     {
         CLEAR_SCREEN_ANSI = "\e[1;1H\e[2J"; /* ANSI Sequence to Clear Screen */
-        write(STDOUT_FILENO, &CLEAR_SCREEN_ANSI, sizeof(char*));
-        x0 = 1;
-    }
+        write(STDOUT_FILENO, CLEAR_SCREEN_ANSI, sizeof(char*));
+            }
     else
     {
         write(1, prompt, strlen(prompt));
@@ -34,6 +33,9 @@ char put_prompt(void)
         * TODO: Replace with custom putchar
         */
     }
+	x0 = 1;
+
+
     return (*prompt);
 }
 /**
