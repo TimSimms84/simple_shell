@@ -11,7 +11,7 @@
  */
 char put_prompt(void)
 {
-	char *prompt = "$";
+	char *prompt = "$ ";
 
 	write(1, prompt, strlen(prompt));
 	putchar('\n');
@@ -29,6 +29,7 @@ char put_prompt(void)
  * Test putchar
  * main - VOID
  * envoke put_promtp (n)times
+*/
 int main(void)
 {
 	int i = 0;
@@ -40,5 +41,3 @@ int main(void)
 	}
 	return (0);
 }
- *
-*/
