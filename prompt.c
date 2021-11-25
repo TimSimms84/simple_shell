@@ -11,19 +11,31 @@
  */
 char put_prompt(void)
 {
-	char *prompt = "$ ";
+    char *prompt = "$ ";
 
-	write(1, prompt, strlen(prompt));
-	putchar('\n');
+    char *CLEAR_SCREEN_ANSI;
+    static int x0 = 1;
 	/*
-	TODO: Replace with custom putchar
-	*/
+	 * Clear Screen First run
+	 * TODO: Not working yet
+	 */
 
-	return (*prompt);
-
+    if (x0)
+    {
+        CLEAR_SCREEN_ANSI = "\e[1;1H\e[2J"; /* ANSI Sequence to Clear Screen */
+        write(STDOUT_FILENO, &CLEAR_SCREEN_ANSI, sizeof(char*));
+        x0 = 1;
+    }
+    else
+    {
+        write(1, prompt, strlen(prompt));
+        putchar('\n');
+        /*
+        * TODO: Replace with custom putchar
+        */
+    }
+    return (*prompt);
 }
-
-
 /**
  *
  * Test putchar
@@ -32,12 +44,12 @@ char put_prompt(void)
 */
 int main(void)
 {
-	int i = 0;
+    int i = 0;
 
-	while (i < 5)
-	{
-		put_prompt();
-		i++;
-	}
-	return (0);
+    while (i < 5)
+    {
+        put_prompt();
+        i++;
+    }
+    return (0);
 }
