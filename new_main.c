@@ -1,10 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/wait.h>
-#include <unistd.h>
-#include <string.h>
-
-int main()
+#include "main.h"
+/*
+ *
+ *
+ *
+ */
+int main(int argc, char **argv)
 {
-	char
+	put_prompt();
+
+	return (EXIT_SUCCESS);
 }

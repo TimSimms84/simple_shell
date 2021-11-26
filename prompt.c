@@ -44,6 +44,8 @@ char put_prompt(void)
  * main - VOID
  * envoke put_promtp (n)times
 */
+/*
+ *
 int main(void)
 {
     int i = 0;
@@ -55,3 +57,4 @@ int main(void)
     }
     return (0);
 }
+*/
