@@ -1,4 +1,4 @@
-# Welcome to Holberton Simple Shell
+# Simple Shell
 
 ## ABOUT:
 The simple shell is a command line interpreter that was first conceived by Ken Thompson in 1971. Users can direct the operation of the computer by entering commands as text for a command line interpreter to execute, or by creating text scripts of one or more such commands. This shell includes basic functionality found in the traditional Unix shell.
