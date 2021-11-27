@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <stdarg.h>
-#include <string.h>
-#include <unistd.h>
+#include "main.h"
 /*
  * TODO: Combine Includes into main
  */
@@ -22,7 +19,8 @@ char put_prompt(void)
 
     if (x0)
     {
-        CLEAR_SCREEN_ANSI = "\e[1;1H\e[2J"; /* ANSI Sequence to Clear Screen */
+        CLEAR_SCREEN_ANSI = "\e[1;1H\e[2J";
+        /* ANSI Sequence to Clear Screen */
         write(STDOUT_FILENO, CLEAR_SCREEN_ANSI, sizeof(char*));
             }
     else
@@ -36,7 +34,7 @@ char put_prompt(void)
 	x0 = 1;
 
 
-    return (*prompt);
+    return (*prompt);   /* Return the prompt */
 }
 /**
  *

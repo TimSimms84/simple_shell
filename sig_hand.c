@@ -1,39 +1,15 @@
 #include<stdio.h>
 #include<signal.h>
-
-// void handle_sigint(int sig)
-// {
-//     printf("Caught signal %d\n", sig);
-// }
-  
-// int main()
-// {
-//     signal(SIGINT, handle_sigint);
-//     while (1) ;
-//     return 0;
-// }
-
-// int main()
-// {
-//     signal(SIGINT, handle_sigint);
-//     while (1)
-//     {
-//         printf(“hello world\n”);
-//         sleep(1);
-//     }
-//     return 0;
-// }
-
-
-#include<stdio.h>
-#include<wait.h>
-#include<signal.h>
-#include <stdlib.h>
-
-pid_t pid;
-int counter = 0;
+/**
+ *
+ *
+ *
+ *
+ */
 void handler1(int sig)
 {
+    int counter = 0;
+
     counter++;
     printf("counter = %d\n", counter);
     /* Flushes the printed string to stdout */
@@ -42,6 +18,7 @@ void handler1(int sig)
 }
 void handler2(int sig)
 {
+    int counter = 0;
     counter += 3;
     printf("counter = %d\n", counter);
     exit(0);
@@ -49,18 +26,26 @@ void handler2(int sig)
   
 int main()
 {
+    int counter = 0;
     pid_t p;
     int status;
-    signal(SIGUSR1, handler1);
-    if ((pid = fork()) == 0)
+    p = fork();
+
+    if (p == 0)
     {
-        signal(SIGUSR1, handler2);
-        kill(getppid(), SIGUSR1);
-        while(1) ;
+        signal(SIGUSR1, handler1);
+        while (1)
+        {
+            pause();
+        }
     }
-    if ((p = wait(&status)) > 0)
+    else
     {
-        counter += 4;
-        printf("counter = %d\n", counter);
+        signal(SIGUSR2, handler2);
+        while (1)
+        {
+            pause();
+        }
     }
+    return 0;
 }

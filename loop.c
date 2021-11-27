@@ -10,7 +10,7 @@ void main_loop(void)
 	char **args;
 	int status;
 
-	
+
 
 	do {
 		put_prompt();
@@ -26,7 +26,7 @@ void main_loop(void)
 
 }
 
-read_line()
+read_line(char *readin[])
 {
 	char *line = NULL;
 	ssize_t bufsize = 0;
@@ -90,6 +90,7 @@ execute(char **args)
 			pid = waitpid(pid, &status, WUNTRACED);
 		}while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
+	
 
 	return (1);
 }
