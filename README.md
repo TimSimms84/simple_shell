@@ -1,5 +1,3 @@
-# simple shell
-
 ## ***List of allowed functions and system calls***
 ***
 |FUNCTION/SYSTEM CALL|  MAN PAGE | More INFO | 
@@ -35,4 +33,4 @@
 |**wait3** | (man 2 wait3)|  INFO    |
 |**wait4** | (man 2 wait4)|  INFO    |
 |**write** | (man 2 write)|  INFO    |
-***
+
