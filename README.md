@@ -90,7 +90,8 @@ total 464
 |**wait4** | (man 2 wait4)|  INFO    |
 |**write** | (man 2 write)|  INFO    |
 ***
-```
+
 ## Authors
 Jeremy Stevenson
+
 Tim Simms
