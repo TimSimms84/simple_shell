@@ -1,10 +1,10 @@
-# SIMPLE SHELL
+# Welcome to Holberton Simple Shell
 
 ## ABOUT:
-The shell is a command line interpreter that was first conceived by Ken Thompson in 1971. Users can direct the operation of the computer by entering commands as text for a command line interpreter to execute, or by creating text scripts of one or more such commands. This shell includes basic functionality found in the traditional Unix shell.
+The simple shell is a command line interpreter that was first conceived by Ken Thompson in 1971. Users can direct the operation of the computer by entering commands as text for a command line interpreter to execute, or by creating text scripts of one or more such commands. This shell includes basic functionality found in the traditional Unix shell.
 
 ## VERSION
-This version of simple shell has been used on Ubuntu 14.04.5 LTS
+This version of simple shell has been used on Ubuntu 20.04.5 LTS
 
 ## TO RUN:
 Clone this repo:
@@ -89,4 +89,3 @@ $ total 112
 ## Authors
 Jeremy Stevenson
 Tim Simms
-
