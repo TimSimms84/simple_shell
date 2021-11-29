@@ -4,8 +4,9 @@
  * check_command - checks if command is valid
  * @args: argument vector
  * @program: name of shell
- *
- * Return: returns something
+ * @n: line number
+ * @main_path: passing main path struct
+ * Return: 1
  */
 
 int check_command(char **args, char *program, int n, path_t *main_path)
@@ -34,7 +35,8 @@ int check_command(char **args, char *program, int n, path_t *main_path)
  * execute - executes a program
  * @args: a double pointer of command line arguments
  * @program: name of shell
- *
+ * @n: line count
+ * @main_path: passing main path struct
  * Return: always returns 1
  */
 
@@ -64,6 +66,12 @@ int execute(char **args, char *program, int n, path_t *main_path)
 	return (1);
 }
 
+/**
+ * signal_handler - handles sigint
+ * @sig: the signal
+ *
+ *
+ */
 void signal_handler (int sig)
 {
 	if (sig == SIGINT)

@@ -45,6 +45,13 @@ void print_env(void)
 	}
 }
 
+/**
+ * cd - changes directory
+ * command: passed argument
+ *
+ * Return: 0
+ */
+
 int cd(char **command)
 {
 	chdir(command[1]);

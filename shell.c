@@ -11,8 +11,8 @@ void prompt(char *program)
 	char **args;
 	int x, line_num = 0;
 	path_t *main_path;
-	
-	
+
+
 	main_path = make_path();
 	signal(SIGINT, signal_handler);
 

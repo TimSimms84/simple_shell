@@ -35,7 +35,7 @@ char *_getenv(char *name)
 	if (!copy)
 		return (NULL);
 	_strcpy(copy, match);
-	
+
 
 	return (copy);
 }

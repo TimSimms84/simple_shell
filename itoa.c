@@ -25,32 +25,32 @@ int _numlen(int n)
 
 char *_itoa(int num)
 {
-    char *buffer;
-    int len = _numlen(num);
-    unsigned int num1;
+	char *buffer;
+	int len = _numlen(num);
+	unsigned int num1;
 
-    buffer = malloc(sizeof(char) * (len + 1));
-    if (!buffer)
-        return (NULL);
+	buffer = malloc(sizeof(char) * (len + 1));
+	if (!buffer)
+		return (NULL);
 
-    buffer[len] = '\0';
+	buffer[len] = '\0';
 
-    if (num < 0)
-    {
-        num1 = num * -1;
-        buffer[0] = '-';
-    }
-    else
-    {
-        num1 = num;
-    }
+	if (num < 0)
+	{
+		num1 = num * -1;
+		buffer[0] = '-';
+	}
+	else
+	{
+		num1 = num;
+	}
 
-    len--;
-    do {
-        buffer[len] = (num1 % 10) + '0';
-        num1 /= 10;
-        len--;
-    } while (num1 > 0);
+	len--;
+	do {
+		buffer[len] = (num1 % 10) + '0';
+		num1 /= 10;
+		len--;
+	} while (num1 > 0);
 
-    return (buffer);
+	return (buffer);
 }
