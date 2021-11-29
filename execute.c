@@ -66,8 +66,8 @@ void signal_handler (int sig)
 {
 	if (sig == SIGINT)
 	{
-				write(1, "\n", 1);
-				prompter();
+		write(1, "\n", 1);
+		prompter();
 	}
 
 }
