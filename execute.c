@@ -62,6 +62,13 @@ int execute(char **args, char *program, int n)
 	return (1);
 }
 
+/**
+ * signal_handler - handles SIGINT
+ * @sig: signal
+ * Return: void
+ *
+ */
+
 void signal_handler (int sig)
 {
 	if (sig == SIGINT)
