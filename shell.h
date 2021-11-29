@@ -1,7 +1,7 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-/* Libraries */
+/* Library Dependencies */
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -9,8 +9,8 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <string.h>
+#include <signal.h>
 
-/* Path Structure */
 /**
  * struct path - path node struct
  * @dir: string containing directory
@@ -24,19 +24,20 @@ typedef struct path
 
 extern char **environ;
 
-path_t *main_path;
-path_t *env;
+
 
 char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
 char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
+char *_strcat(char *dest, char *src);
 char *_itoa(int num);
+
 
 
 char *read_line(void);
 char **tokenize(char *buffer, char *delim);
-int execute(char **args, char *program, int n);
+int execute(char **args, char *program, int n, path_t *main_path);
 void prompt(char *program);
 char *get_line(void);
 void prompter(void);
@@ -47,6 +48,7 @@ void signal_handler (int sig);
 char *_strtok(char *src, const char *delim);
 int word_count(char *s);
 
+
 char *_getenv(char *name);
 path_t *make_path(void);
 char *check_path(path_t *head, char *command);
@@ -54,12 +56,13 @@ char *path_concat(char *s1, char *s2);
 path_t *_environ(void);
 
 void free_path(path_t *head);
+void free_env(path_t *head);
 
 int check_builtin(char **args, char *line);
 void hsh_exit(char **args, char *line);
 void print_env(void);
 int cd(char **command);
-int check_command(char **args, char *program, int n);
+int check_command(char **args, char *program, int n, path_t *main_path);
 
 
 void __error(char **args, char *program, int code, int n);

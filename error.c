@@ -4,7 +4,6 @@
  * @args: arguments passed in
  * @cmd: command
  * @code: error code
- * @n: line count
  */
 void __error(char **args, char *cmd, int code, int n)
 {
@@ -18,10 +17,10 @@ void __error(char **args, char *cmd, int code, int n)
 	write(STDOUT_FILENO, ": ", 2);
 	write(STDOUT_FILENO, args[0], _strlen(args[0]));
 	free(str_num);
-	free_path(main_path);
-	free_path(env);
+	/*free_path(main_path);*/
+	/*free_path(env);*/
 	free(args);
-
+	
 
 	if (code == 1)
 	{
@@ -38,5 +37,5 @@ void __error(char **args, char *cmd, int code, int n)
 		write(STDOUT_FILENO, ": no such file or directory\n", 29);
 		exit(0);
 	}
-
+	
 }

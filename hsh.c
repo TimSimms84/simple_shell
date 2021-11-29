@@ -6,13 +6,12 @@
  *
  * Return: 0
  */
-int main(int argc, char **argv)
+int main(__attribute__((unused))int argc, __attribute__((unused))char **argv)
 {
-	char *temp = *argv;
 
 	if (!argc)
 		return (0);
-	prompt(temp);
+	prompt(*argv);
 
 	return (0);
 }

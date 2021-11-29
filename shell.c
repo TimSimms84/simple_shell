@@ -10,8 +10,9 @@ void prompt(char *program)
 	char *line;
 	char **args;
 	int x, line_num = 0;
-
-	env = _environ();
+	path_t *main_path;
+	
+	
 	main_path = make_path();
 	signal(SIGINT, signal_handler);
 
@@ -28,7 +29,7 @@ void prompt(char *program)
 		}
 		args = tokenize(line, "\n ");
 		if (check_builtin(args, line) == 1)
-			execute(args, program, line_num);
+			execute(args, program, line_num, main_path);
 		x = 0;
 		while (args[x] != NULL)
 		{
@@ -43,7 +44,6 @@ void prompt(char *program)
 			free(args);
 	}
 	free_path(main_path);
-	free_path(env);
 	free(line);
 }
 

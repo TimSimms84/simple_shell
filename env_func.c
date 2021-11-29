@@ -11,8 +11,9 @@ char *_getenv(char *name)
 	char *match, *copy;
 	path_t *temp;
 
+	temp = _environ();
+
 	match = NULL;
-	temp = env;
 
 	while (temp)
 	{
@@ -34,7 +35,7 @@ char *_getenv(char *name)
 	if (!copy)
 		return (NULL);
 	_strcpy(copy, match);
-
+	
 
 	return (copy);
 }

@@ -4,11 +4,11 @@
  * check_command - checks if command is valid
  * @args: argument vector
  * @program: name of shell
- * @n: line count
+ *
  * Return: returns something
  */
 
-int check_command(char **args, char *program, int n)
+int check_command(char **args, char *program, int n, path_t *main_path)
 {
 	char *result;
 	int line_num = n;
@@ -26,6 +26,7 @@ int check_command(char **args, char *program, int n)
 		if (execve(result, args, NULL) == -1)
 			__error(args, program, 2, line_num);
 	}
+	free_path(main_path);
 	return (1);
 }
 
@@ -33,11 +34,11 @@ int check_command(char **args, char *program, int n)
  * execute - executes a program
  * @args: a double pointer of command line arguments
  * @program: name of shell
- * @n: line count
+ *
  * Return: always returns 1
  */
 
-int execute(char **args, char *program, int n)
+int execute(char **args, char *program, int n, path_t *main_path)
 {
 	pid_t child_pid;
 	int status, line_num = n;
@@ -45,7 +46,7 @@ int execute(char **args, char *program, int n)
 	child_pid = fork();
 	if (child_pid == 0)
 	{
-		check_command(args, program, line_num);
+		check_command(args, program, line_num, main_path);
 		exit(0);
 	}
 	else if (child_pid == -1)
@@ -59,15 +60,9 @@ int execute(char **args, char *program, int n)
 			waitpid(child_pid, &status, WUNTRACED);
 		} while (WIFEXITED(status) == 0 && WIFSIGNALED(status) == 0);
 	}
+	/**free_path(main_path);*/
 	return (1);
 }
-
-/**
- * signal_handler - handles SIGINT
- * @sig: signal
- * Return: void
- *
- */
 
 void signal_handler (int sig)
 {

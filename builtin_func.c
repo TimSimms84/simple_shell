@@ -22,8 +22,8 @@ void hsh_exit(char **args, char *line)
 		}
 		free(args);
 	}
-	free_path(main_path);
-	free_path(env);
+	/***/
+	/** free_path(env); */
 
 	exit(0);
 }
@@ -36,7 +36,7 @@ void print_env(void)
 {
 	path_t *temp;
 
-	temp = env;
+	temp = _environ();
 	while (temp)
 	{
 		write(1, temp->dir, _strlen(temp->dir));
@@ -44,12 +44,7 @@ void print_env(void)
 		temp = temp->next;
 	}
 }
-/**
- * cd - changes directoryi
- * @command: Direcotry to change to
- *
- * Return: 0
- */
+
 int cd(char **command)
 {
 	chdir(command[1]);
