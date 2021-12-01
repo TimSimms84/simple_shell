@@ -6,13 +6,19 @@
  *
  * Return: 0
  */
-int main(int argc, char **argv)
+int main(void)
 {
-	char *temp = *argv;
-
-	if (!argc)
-		return (0);
-	prompt(temp);
-
+	char *line;
+	int status = 1;
+	do {
+		line = get_line();
+		if (!line)
+		{
+			free(line);
+			break;
+		}
+		prompt(line);
+		free(line);
+	} while (status);
 	return (0);
 }
