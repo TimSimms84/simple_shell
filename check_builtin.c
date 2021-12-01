@@ -23,5 +23,10 @@ int check_builtin(char **args, char *line)
 		cd(args);
 		return (0);
 	}
+	else if (_strcmp(args[0], "clear") == 0)
+	{
+		clear_screen();
+		return (0);
+	}
 	return (1);
 }

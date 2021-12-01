@@ -16,6 +16,8 @@ void prompt(char *program)
 
 	while (1)
 	{
+		if (line_num < 1)
+			clear_screen();
 		prompter();
 		line_num++;
 		line = get_line();
@@ -75,4 +77,10 @@ char *get_line(void)
 void prompter(void)
 {
 	write(1, "$ ", 2);
+}
+
+char clear_screen(void)
+{
+	write(1, "\033[H\033[J", 7);
+	return (0);
 }
