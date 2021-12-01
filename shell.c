@@ -81,6 +81,12 @@ void prompter(void)
 	write(1, "$ ", 2);
 }
 
+/**
+ *
+ *
+ *
+ */
+
 char clear_screen(void)
 {
 	write(1, "\033[H\033[J", 7);
