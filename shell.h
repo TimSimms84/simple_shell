@@ -1,7 +1,7 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-/* Library Dependencies */
+/* Libraries */
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -40,6 +40,8 @@ int execute(char **args, char *program, int n);
 void prompt(char *program);
 char *get_line(void);
 void prompter(void);
+void signal_handler (int sig);
+
 
 
 char *_strtok(char *src, const char *delim);
