@@ -35,7 +35,7 @@ void __error(char **args, char *cmd, int code, int n)
 	}
 	if (code == 3)
 	{
-		write(STDOUT_FILENO, ": no such file or directory\n", 29);
+		write(STDOUT_FILENO, ": Permission denied\n", 21);
 		exit(0);
 	}
 
