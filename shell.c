@@ -82,9 +82,8 @@ void prompter(void)
 }
 
 /**
- *
- *
- *
+ * clear_screen - clears the screen
+ * Return: 0
  */
 
 char clear_screen(void)
