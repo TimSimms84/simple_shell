@@ -60,32 +60,21 @@ int execute(char **args, char *program, int n)
 		} while (WIFEXITED(status) == 0 && WIFSIGNALED(status) == 0);
 	}
 	return (1);
+
 }
 
-<<<<<<< HEAD
-=======
 /**
- * signal_handler - handles SIGINT
- * @sig: signal
- * Return: void
+ * signal_handler - handles sigint
  *
+ *
+ *@sig: signal
  */
 
->>>>>>> 486b5c09f0002d57d0530ea142b497e80d5ff584
 void signal_handler (int sig)
 {
 	if (sig == SIGINT)
 	{
-<<<<<<< HEAD
-				write(1, "\n", 1);
-				prompter();
-	}
-
-}
-=======
 		write(1, "\n", 1);
 		prompter();
 	}
-
 }
->>>>>>> 486b5c09f0002d57d0530ea142b497e80d5ff584
