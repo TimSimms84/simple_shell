@@ -61,3 +61,13 @@ int execute(char **args, char *program, int n)
 	}
 	return (1);
 }
+
+void signal_handler (int sig)
+{
+	if (sig == SIGINT)
+	{
+				write(1, "\n", 1);
+				prompter();
+	}
+
+}

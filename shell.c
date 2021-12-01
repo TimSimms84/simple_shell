@@ -13,6 +13,8 @@ void prompt(char *program)
 
 	env = _environ();
 	main_path = make_path();
+	signal(SIGINT, signal_handler);
+
 
 	while (1)
 	{

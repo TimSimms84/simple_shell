@@ -61,5 +61,8 @@ int check_command(char **args, char *program, int n);
 
 
 void __error(char **args, char *program, int code, int n);
+char clear_screen(void);
+void signal_handler (int sig);
+
 
 #endif /* SHELL_H */
