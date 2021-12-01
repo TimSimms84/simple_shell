@@ -25,32 +25,32 @@ Or non-interactive mode:
 ```$ ls -la```
 
 ```
-total 464
--rw-rw-r-- 1 tim tim   155 Nov 26 15:23 AUTHORS
--rw-rw-r-- 1 tim tim  3467 Nov 27 12:49 README.md
--rw-rw-r-- 1 tim tim   487 Nov 26 15:23 _environ.c
--rw-rw-r-- 1 tim tim   876 Nov 26 15:23 _strtok.c
--rw-rw-r-- 1 tim tim   731 Nov 27 12:44 builtin_func.c
--rw-rw-r-- 1 tim tim   477 Nov 26 15:23 check_builtin.c
--rw-rw-r-- 1 tim tim   559 Nov 26 15:23 check_path.c
--rw-rw-r-- 1 tim tim   638 Nov 27 12:41 env_func.c
--rw-rw-r-- 1 tim tim   810 Nov 27 12:42 error.c
--rw-rw-r-- 1 tim tim  1165 Nov 27 12:44 execute.c
--rw-rw-r-- 1 tim tim   244 Nov 27 12:45 hsh.c
--rwxrwxr-x 1 tim tim 57232 Nov 26 18:01 hshnew
--rwxrwxr-x 1 tim tim 57120 Nov 26 18:05 hshtest
--rwxrwxr-x 1 tim tim 57120 Nov 26 18:15 hshtest1
--rwxrwxr-x 1 tim tim 57128 Nov 26 18:17 hshtest2
--rwxrwxr-x 1 tim tim 57128 Nov 26 18:19 ihateshell
--rwxrwxr-x 1 tim tim 57120 Nov 26 18:22 ihateshell2
--rw-rw-r-- 1 tim tim   678 Nov 27 12:41 itoa.c
--rw-rw-r-- 1 tim tim   909 Nov 26 18:05 make_path.c
--rw-rw-r-- 1 tim tim  1108 Nov 26 15:23 man_1_simple_shell
--rwxrwxr-x 1 tim tim 53336 Nov 27 12:50 saturdayshell
--rw-rw-r-- 1 tim tim  1061 Nov 27 12:39 shell.c
--rw-rw-r-- 1 tim tim  1324 Nov 26 19:34 shell.h
--rw-rw-r-- 1 tim tim  2006 Nov 26 19:33 strings.c
--rw-rw-r-- 1 tim tim  1232 Nov 27 12:46 tokenize.c
+total 200
+drwxrwxr-x  4 tim tim  4096 Dec  1 14:40 .
+drwxr-xr-x 45 tim tim  4096 Dec  1 14:40 ..
+-rw-rw-r--  1 tim tim   159 Dec  1 14:21 AUTHORS
+drwxrwxr-x  2 tim tim  4096 Dec  1 14:20 backup
+-rw-rw-r--  1 tim tim   731 Dec  1 14:21 builtin_func.c
+-rw-rw-r--  1 tim tim   557 Dec  1 14:36 check_builtin.c
+-rw-rw-r--  1 tim tim   559 Dec  1 14:21 check_path.c
+-rw-rw-r--  1 tim tim   638 Dec  1 14:21 env_func.c
+-rw-rw-r--  1 tim tim   487 Dec  1 14:21 _environ.c
+-rw-rw-r--  1 tim tim   810 Dec  1 14:21 error.c
+-rw-rw-r--  1 tim tim  1165 Dec  1 14:21 execute.c
+drwxrwxr-x  8 tim tim  4096 Dec  1 14:39 .git
+-rwxrwxr-x  1 tim tim 53480 Dec  1 14:40 hsh
+-rwxrwxr-x  1 tim tim 53480 Dec  1 14:36 hsh1
+-rw-rw-r--  1 tim tim   244 Dec  1 14:21 hsh.c
+-rw-rw-r--  1 tim tim   678 Dec  1 14:21 itoa.c
+-rw-rw-r--  1 tim tim    38 Dec  1 14:21 main.h
+-rw-rw-r--  1 tim tim   909 Dec  1 14:21 make_path.c
+-rw-rw-r--  1 tim tim  3512 Dec  1 14:21 README.md
+-rw-rw-r--  1 tim tim  1171 Dec  1 14:33 shell.c
+-rw-rw-r--  1 tim tim  1350 Dec  1 14:28 shell.h
+-rw-rw-r--  1 tim tim  2006 Dec  1 14:21 strings.c
+-rw-rw-r--  1 tim tim   876 Dec  1 14:21 _strtok.c
+-rw-rw-r--  1 tim tim  1232 Dec  1 14:21 tokenize.c
+
 ```
 
 
