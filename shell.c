@@ -102,7 +102,7 @@ char *read_line(void)
 	size_t bufsize = 0;
 
 	if (isatty(STDIN_FILENO) == 1)
-		write(1, "$ ", 2);
+		write(1, "($)", 3);
 	if (getline(&buf, &bufsize, stdin) <= 0)
 	{
 		if (isatty(STDIN_FILENO) == 1)
