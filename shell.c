@@ -18,8 +18,6 @@ void prompt(char *program)
 
 	while (1)
 	{
-		if (line_num < 1)
-			clear_screen();
 		prompter();
 		line_num++;
 		line = get_line();
@@ -44,9 +42,9 @@ void prompt(char *program)
 		if (args)
 			free(args);
 	}
+	free(args), free(line);
 	free_path(main_path);
 	free_path(env);
-	free(line);
 }
 
 /**
