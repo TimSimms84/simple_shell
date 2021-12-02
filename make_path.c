@@ -14,6 +14,8 @@ path_t *make_path(void)
 
 	path_name = NULL;
 	temp = malloc(sizeof(path_t));
+
+
 	if (!temp)
 		return (NULL);
 

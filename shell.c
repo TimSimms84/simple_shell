@@ -18,8 +18,10 @@ void prompt(char *program)
 
 	while (1)
 	{
+		/* Removing for Debugging 
 		if (line_num < 1)
 			clear_screen();
+			*/
 		prompter();
 		line_num++;
 		line = get_line();
