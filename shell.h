@@ -1,5 +1,7 @@
 #ifndef SHELL_H
 #define SHELL_H
+#define DELIM " \n\a\t"
+
 
 /* Libraries */
 #include <unistd.h>
