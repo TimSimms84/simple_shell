@@ -31,6 +31,9 @@ The following builtin commands are supported:
 .B cd
 - used to change directories
 
+.B clear
+- will clear the screen
+
 
 .SS Example
 .RS

@@ -13,6 +13,8 @@ int main(int argc, char **argv)
 	if (!argc)
 		return (0);
 	prompt(temp);
+	free(temp);
+
 
 	return (0);
 }
