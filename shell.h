@@ -42,7 +42,6 @@ char *get_line(void);
 void prompter(void);
 void signal_handler (int sig);
 
-char *_strtok(char *src, const char *delim);
 int word_count(char *s);
 
 char *_getenv(char *name);

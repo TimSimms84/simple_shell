@@ -25,7 +25,7 @@ char **tokenize(char *buffer, char *delim)
 		perror("Strdup error\n");
 		return (NULL);
 	}
-	token = _strtok(bufc, delim);
+	token = strtok(bufc, delim);
 
 	while (token)
 	{
@@ -43,7 +43,7 @@ char **tokenize(char *buffer, char *delim)
 		}
 		_strcpy(words[x], token);
 		x++;
-		token = _strtok(NULL, delim);
+		token = strtok(NULL, delim);
 	}
 	words[x] = NULL;
 	free(bufc);

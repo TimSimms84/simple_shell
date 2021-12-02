@@ -25,13 +25,13 @@ path_t *make_path(void)
 		return (NULL);
 	}
 
-	token = _strtok(path_name, ":");
+	token = strtok(path_name, ":");
 
 	head = temp;
 	while (token)
 	{
 		temp->dir = _strdup(token);
-		token = _strtok(NULL, ":");
+		token = strtok(NULL, ":");
 		if (token)
 		{
 			temp->next = malloc(sizeof(path_t));
