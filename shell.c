@@ -9,14 +9,15 @@ void prompt(char *program)
 {
 	char *line;
 	char **args;
-	int x, line_num = 0;
+	int x, status, line_num = 0;
 
 	env = _environ();
 	main_path = make_path();
+	status = 1;
 	signal(SIGINT, signal_handler);
 
 
-	while (1)
+	while (status)
 	{
 		/*prompter();*/
 		line_num++;
@@ -28,7 +29,7 @@ void prompt(char *program)
 		}
 		args = tokenize(line, "\n ");
 		if (check_builtin(args, line) == 1)
-			execute(args, program, line_num);
+			status = execute(args, program, line_num);
 		x = 0;
 		while (args[x] != NULL)
 		{
