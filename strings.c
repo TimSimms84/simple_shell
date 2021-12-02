@@ -55,7 +55,7 @@ char *_strdup(char *str)
 
 	s = malloc(sizeof(char) * (_strlen(str) + 1));
 	if (s == NULL)
-		return (NULL);
+		exit (-1);
 	for (x = 0; str[x] != '\0'; x++)
 		s[x] = str[x];
 	s[x] = '\0';
@@ -107,7 +107,7 @@ char *path_concat(char *s1, char *s2)
 
 	s = malloc(sizeof(char) * (_strlen(s1) + _strlen(s2) + 2));
 	if (s == NULL)
-		return (NULL);
+		exit (-1);
 
 	for (x = 0; s1[x]; x++)
 		s[x] = s1[x];

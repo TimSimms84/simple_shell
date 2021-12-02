@@ -31,7 +31,7 @@ char *_itoa(int num)
 
 	buffer = malloc(sizeof(char) * (len + 1));
 	if (!buffer)
-		return (NULL);
+		exit (-1);
 
 	buffer[len] = '\0';
 

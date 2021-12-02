@@ -15,7 +15,7 @@ path_t *make_path(void)
 	path_name = NULL;
 	temp = malloc(sizeof(path_t));
 	if (!temp)
-		return (NULL);
+		exit (-1);
 
 	path_name = _getenv("PATH");
 
@@ -38,7 +38,7 @@ path_t *make_path(void)
 			if (!temp->next)
 			{
 				free_path(head);
-				return (NULL);
+				exit (-1);
 			}
 			temp = temp->next;
 		}

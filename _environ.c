@@ -12,7 +12,7 @@ path_t *_environ(void)
 
 	head = malloc(sizeof(path_t));
 	if (!head)
-		return (NULL);
+		exit (-1);
 	temp = head;
 	while (environ[x])
 	{
@@ -20,6 +20,8 @@ path_t *_environ(void)
 		if (environ[x + 1] != NULL)
 		{
 			temp->next = malloc(sizeof(path_t));
+			if (!temp->next)
+				exit (-1);
 			temp = temp->next;
 		}
 		x++;

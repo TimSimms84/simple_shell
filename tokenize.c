@@ -17,7 +17,7 @@ char **tokenize(char *buffer, char *delim)
 	if (!words)
 	{
 		perror("Error\n");
-		exit(99);
+		exit(-1);
 	}
 	bufc = _strdup(buffer);
 	if (!bufc)
@@ -39,7 +39,7 @@ char **tokenize(char *buffer, char *delim)
 				x--;
 			}
 			free(words);
-			return (NULL);
+			exit (-1);
 		}
 		_strcpy(words[x], token);
 		x++;
