@@ -27,7 +27,7 @@ void prompt(char *program)
 			free(line);
 			continue;
 		}
-		args = tokenize(line, "\n ");
+		args = tokenize(line, DELIM);
 		if (check_builtin(args, line) == 1)
 			status = execute(args, program, line_num);
 		x = 0;
