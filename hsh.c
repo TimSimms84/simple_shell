@@ -8,13 +8,9 @@
  */
 int main(int argc, char **argv)
 {
-	char *temp = *argv;
-
 	if (!argc)
 		return (0);
-	prompt(temp);
-	free(temp);
-
-
+	prompt(argv[0]);
 	return (0);
 }
+
