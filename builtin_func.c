@@ -10,7 +10,7 @@ void hsh_exit(char **args, char *line)
 {
 	unsigned int i = 0;
 
-	if (!line)
+	if (line)
 		free(line);
 	if (args)
 	{
