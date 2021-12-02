@@ -32,7 +32,7 @@ char *_getenv(char *name)
 
 	copy = malloc(sizeof(char *) * (_strlen(match)));
 	if (!copy)
-		exit (-1);
+		exit(-1);
 	_strcpy(copy, match);
 
 

@@ -39,7 +39,7 @@ char **tokenize(char *buffer, char *delim)
 				x--;
 			}
 			free(words);
-			exit (-1);
+			exit(-1);
 		}
 		_strcpy(words[x], token);
 		x++;
