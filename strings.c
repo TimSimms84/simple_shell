@@ -75,8 +75,10 @@ char *_strdup(char *str)
 
 int _strcmp(char *s1, char *s2)
 {
-	if (s1 == NULL || s2 == NULL)
-		return (-1);
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
 	while ((*s1 == *s2) && *s1 != '\0' && *s2 != '\0')
 	{
 		s1++;
