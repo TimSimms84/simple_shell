@@ -100,10 +100,22 @@ char *read_line(void)
 {
 	char *buf = NULL;
 	size_t bufsize = 0;
+	int test;
 
 	if (isatty(STDIN_FILENO) == 1)
 		write(1, "$ ", 2);
-	if (getline(&buf, &bufsize, stdin) <= 0)
+	
+	test = getline(&buf, &bufsize, stdin);
+	if (test == EOF)
+	{
+		write(1, "\n", 1);	
+		free_path(main_path);
+		free_path(env);
+		free(buf);
+		_exit(1);
+	}
+
+	if (test <= 0)
 	{
 		if (isatty(STDIN_FILENO) == 1)
 			write(STDOUT_FILENO, "\n", 1);
