@@ -104,11 +104,11 @@ char *read_line(void)
 
 	if (isatty(STDIN_FILENO) == 1)
 		write(1, "$ ", 2);
-	
+
 	test = getline(&buf, &bufsize, stdin);
 	if (test == EOF)
 	{
-		write(1, "\n", 1);	
+		write(1, "\n", 1);
 		free_path(main_path);
 		free_path(env);
 		free(buf);
