@@ -13,9 +13,9 @@ int check_command(char **args, char *program, int n)
 	char *result;
 	int line_num = n;
 
-	if (args[0][0] == '/')
+	if (args[0][0] == '/' || args[0][1] == '/')
 	{
-		if (execve(args[0], args, NULL) == -1)
+		if (execve(args[0], args, environ) == -1)
 			__error(args, program, 3, line_num);
 	}
 	else
@@ -23,7 +23,7 @@ int check_command(char **args, char *program, int n)
 		result = (check_path(main_path, args[0]));
 		if (!result)
 			__error(args, program, 1, line_num);
-		if (execve(result, args, NULL) == -1)
+		if (execve(result, args, environ) == -1)
 			__error(args, program, 2, line_num);
 	}
 	return (1);
