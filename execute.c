@@ -13,7 +13,12 @@ int check_command(char **args, char *program, int n)
 	char *result;
 	int line_num = n;
 
-	if (args[0][1] == '/')
+	if (args[0][0] == '/')
+	{
+		if (execve(args[0], args, environ) == -1)
+			__error(args, program, 3, line_num);
+	}
+	else if (args[0][1] == '/')
 	{
 		if (execve(args[0], args, environ) == -1)
 			__error(args, program, 3, line_num);
