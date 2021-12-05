@@ -8,30 +8,46 @@
 
 path_t *make_path(void)
 {
+	path_t *head;
+	path_t *temp;
+	char *path_name, *token;
 
-	path_t *head = NULL;
-	path_t *new = NULL;
-	char *path = NULL;
-	char *token = NULL;
-	char *delim = ":";
+	path_name = NULL;
+	temp = malloc(sizeof(path_t));
+	if (!temp)
+		exit(-1);
 
-	path = _getenv("PATH");
-	if (path == NULL)
-		return (NULL);
-	token = strtok(path, delim);
-	while (token != NULL)
+	path_name = _getenv("PATH");
+
+
+	if (!path_name)
 	{
-		new = malloc(sizeof(path_t));
-		if (new == NULL)
-			return (NULL);
-		new->dir = _strdup(token);
-		new->next = NULL;
-		if (head == NULL)
-			head = new;
-		else
-			head->next = new;
-		token = strtok(NULL, delim);
+		free(temp);
+		return (NULL);
 	}
+
+	token = strtok(path_name, ":");
+
+	head = temp;
+	while (token)
+	{
+		temp->dir = _strdup(token);
+		token = strtok(NULL, ":");
+
+		if (token)
+		{
+			temp->next = malloc(sizeof(path_t));
+			if (!temp->next)
+			{
+				free_path(head);
+				exit(-1);
+			}
+			temp = temp->next;
+		}
+		else
+			temp->next = NULL;
+	}
+	free(path_name);
 	return (head);
 }
 
