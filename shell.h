@@ -67,4 +67,14 @@ void signal_handler (int sig);
 char *read_line(void);
 
 
+int exit_builtin(char **args, char *line);
+int env_builtin(char **args, char *line);
+int setenv_builtin(char **args, char *line);
+int unsetenv_builtin(char **args, char *line);
+int cd_builtin(char **args, char *line);
+
+
+
+
+
 #endif /* SHELL_H */

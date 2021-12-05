@@ -13,6 +13,7 @@ void hsh_exit(char **args, char *line)
 	if (!line)
 		free(line);
 	if (args)
+
 	{
 		while (args[i] != NULL)
 		{
@@ -22,6 +23,7 @@ void hsh_exit(char **args, char *line)
 		}
 		free(args);
 	}
+	free(line);
 	free_path(main_path);
 	free_path(env);
 

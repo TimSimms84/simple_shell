@@ -8,6 +8,12 @@
  */
 int main(int argc, char **argv)
 {
+
+
+	(void)argc;
+	(void)argv;
+
+
 	if (!argc)
 		return (0);
 	prompt(argv[0]);
