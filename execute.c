@@ -40,31 +40,25 @@ int execute(char **args, char *program, int n)
 {
 	pid_t child_pid;
 	int status, line_num = n;
-	char *result;
 
-	if (args[0] == NULL)
-		return (1);
-	if (args[0][0] == '.' && args[0][1] == '/')
+	child_pid = fork();
+	if (child_pid == 0)
 	{
-		if (execve(args[0], args, environ) == -1)
-			__error(args, program, 3, line_num);
+		check_command(args, program, line_num);
+		exit(0);
 	}
-	else if (args[0][0] == '/')
+	else if (child_pid == -1)
 	{
-		if (execve(args[0], args, environ) == -1)
-			__error(args, program, 3, line_num);
+		perror("Error: fork failed");
+		exit(99);
 	}
 	else
 	{
-		result = (check_path(main_path, args[0]));
-		if (!result)
-			__error(args, program, 1, line_num);
-		if (execve(result, args, environ) == -1)
-			__error(args, program, 2, line_num);
+		do {
+			waitpid(child_pid, &status, WUNTRACED);
+		} while (WIFEXITED(status) == 0 && WIFSIGNALED(status) == 0);
 	}
 	return (1);
-
-
 
 }
 
