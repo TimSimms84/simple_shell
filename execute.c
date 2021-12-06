@@ -59,12 +59,12 @@ int execute(char **args, char *program, int n)
 		if (child_pid == 0)
 		{
 			if (execve(args[0], args, environ) == -1)
-				__error(args, program, 3, line_num);
+				__error(args, program, 2, line_num);
 		}
-		else if (child_pid < 0)
-			__error(args, program, 4, line_num);
 		else
+		{
 			wait(&status);
+		}
 	}
 	return (1);
 
