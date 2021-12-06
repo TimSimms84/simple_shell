@@ -28,7 +28,6 @@ int check_command(char **args, char *program, int n)
 	}
 	return (1);
 }
-
 /**
  * execute - executes a program
  * @args: a double pointer of command line arguments
@@ -42,24 +41,34 @@ int execute(char **args, char *program, int n)
 	pid_t child_pid;
 	int status, line_num = n;
 
-	child_pid = fork();
-	if (child_pid == 0)
+	if (args[0] == NULL)
+		return (1);
+	if (args[0][0] == '.' && args[0][1] == '/')
 	{
-		check_command(args, program, line_num);
-		exit(0);
+		if (execve(args[0], args, environ) == -1)
+			__error(args, program, 3, line_num);
 	}
-	else if (child_pid == -1)
+	else if (args[0][0] == '/')
 	{
-		perror("Error: fork failed");
-		exit(99);
+		if (execve(args[0], args, environ) == -1)
+			__error(args, program, 3, line_num);
 	}
 	else
 	{
-		do {
-			waitpid(child_pid, &status, WUNTRACED);
-		} while (WIFEXITED(status) == 0 && WIFSIGNALED(status) == 0);
+		child_pid = fork();
+		if (child_pid == 0)
+		{
+			if (execve(args[0], args, environ) == -1)
+				__error(args, program, 3, line_num);
+		}
+		else if (child_pid < 0)
+			__error(args, program, 4, line_num);
+		else
+			wait(&status);
 	}
 	return (1);
+
+
 
 }
 
