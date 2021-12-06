@@ -40,6 +40,7 @@ int execute(char **args, char *program, int n)
 {
 	pid_t child_pid;
 	int status, line_num = n;
+	char *result;
 
 	if (args[0] == NULL)
 		return (1);
@@ -55,16 +56,11 @@ int execute(char **args, char *program, int n)
 	}
 	else
 	{
-		child_pid = fork();
-		if (child_pid == 0)
-		{
-			if (execve(args[0], args, environ) == -1)
-				__error(args, program, 2, line_num);
-		}
-		else
-		{
-			wait(&status);
-		}
+		result = (check_path(main_path, args[0]));
+		if (!result)
+			__error(args, program, 1, line_num);
+		if (execve(result, args, environ) == -1)
+			__error(args, program, 2, line_num);
 	}
 	return (1);
 
