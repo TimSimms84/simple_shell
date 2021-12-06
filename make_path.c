@@ -19,13 +19,11 @@ path_t *make_path(void)
 
 	path_name = _getenv("PATH");
 
-
 	if (!path_name)
 	{
 		free(temp);
 		return (NULL);
 	}
-
 	token = strtok(path_name, ":");
 
 	head = temp;
@@ -33,7 +31,6 @@ path_t *make_path(void)
 	{
 		temp->dir = _strdup(token);
 		token = strtok(NULL, ":");
-
 		if (token)
 		{
 			temp->next = malloc(sizeof(path_t));
