@@ -1,5 +1,6 @@
 #include "shell.h"
 
+
 /**
  * hsh_exit - exits the current process
  * @args: arguments
@@ -12,13 +13,13 @@ void hsh_exit(char **args, char *line)
 
 	if (!line)
 		free(line);
+	if (!args)
+		free(args);
 	if (args)
-
 	{
-		while (args[i] != NULL)
+		while (args[i])
 		{
-			if (args[i])
-				free(args[i]);
+			free(args[i]);
 			i++;
 		}
 		free(args);
@@ -29,6 +30,26 @@ void hsh_exit(char **args, char *line)
 
 	exit(0);
 }
+
+int _atoi(char *str)
+{
+	int i = 0;
+	int j = 0;
+	int k = 0;
+
+	while (str[i] != '\0')
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			j = str[i] - '0';
+			k = k * 10 + j;
+		}
+		i++;
+	}
+	return (k);
+}
+
+
 
 /**
  * print_env - prints the entire environment array
