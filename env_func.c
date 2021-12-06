@@ -13,17 +13,22 @@ char *_getenv(char *name)
 
 	match = NULL;
 	temp = env;
-	for (y = 0; temp != NULL; y++)
+
+	while (temp)
 	{
-		copy = _strdup(temp->dir);
-		if (_strcmp(name, copy) == 0)
+		y = 0;
+		while (name[y])
 		{
-			match = temp->dir;
-			break;
+			if (name[y] != temp->dir[y])
+				break;
+			if (name[y + 1] == '\0' && temp->dir[y + 1] == '=')
+				match = temp->dir;
+			y++;
 		}
+		if (match)
+			break;
 		temp = temp->next;
 	}
-	return (match);
 
 	copy = malloc(sizeof(char *) * (_strlen(match)));
 	if (!copy)
