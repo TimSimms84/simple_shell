@@ -19,7 +19,6 @@ void prompt(char *program)
 
 	while (status)
 	{
-		/*prompter();*/
 		line_num++;
 		line = read_line();
 		if (line[0] == '\n')
@@ -48,26 +47,6 @@ void prompt(char *program)
 	free_path(env);
 }
 
-/**
- * get_line - function with no args
- *
- * Description: get line from cmd
- * Return: buffer
- */
-char *get_line(void)
-{
-	char *buf = NULL;
-	size_t bufsize = 0;
-	int test;
-
-	test = getline(&buf, &bufsize, stdin);
-	if (test == EOF)
-	{
-		write(1, "\n", 1);
-		_exit(1);
-	}
-	return (buf);
-}
 
 /**
  * prompter - function to print prompt
