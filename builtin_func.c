@@ -30,27 +30,6 @@ void hsh_exit(char **args, char *line)
 
 	exit(0);
 }
-
-int _atoi(char *str)
-{
-	int i = 0;
-	int j = 0;
-	int k = 0;
-
-	while (str[i] != '\0')
-	{
-		if (str[i] >= '0' && str[i] <= '9')
-		{
-			j = str[i] - '0';
-			k = k * 10 + j;
-		}
-		i++;
-	}
-	return (k);
-}
-
-
-
 /**
  * print_env - prints the entire environment array
  *
