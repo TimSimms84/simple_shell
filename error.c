@@ -30,12 +30,12 @@ void __error(char **args, char *cmd, int code, int n)
 	}
 	if (code == 2)
 	{
-		write(STDOUT_FILENO, ": command not found\n", 21);
+		write(STDERR_FILENO, ": command not found\n", 21);
 		exit(0);
 	}
 	if (code == 3)
 	{
-		write(STDOUT_FILENO, ": Permission denied\n", 21);
+		write(STDERR_FILENO, ": Permission denied\n", 21);
 		exit(0);
 	}
 
