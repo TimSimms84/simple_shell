@@ -25,7 +25,7 @@ void __error(char **args, char *cmd, int code, int n)
 
 	if (code == 1)
 	{
-		write(STDOUT_FILENO, ": not found\n", 13);
+		write(STDERR_FILENO, ": not found\n", 12);
 		exit(127);
 	}
 	if (code == 2)
